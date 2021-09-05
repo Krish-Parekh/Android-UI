@@ -18,8 +18,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         val tabLayout = binding.tabLayout
         val viewPager2 = binding.viewPager2
+
+        /*
+        * Return the FragmentManager for interacting with fragments associated with this activity
+        * Returns the Lifecycle of the provider
+        * */
         val adapter = ViewPageAdapter(supportFragmentManager, lifecycle)
         viewPager2.adapter = adapter
+
+        /*
+        * A mediator to link a TabLayout with a ViewPager2. The mediator will synchronize the ViewPager2's position
+        * with the selected tab when a tab is selected, and the TabLayout's scroll position when the user drags the ViewPager2.
+        * */
         TabLayoutMediator(tabLayout, viewPager2) { tab, position ->
             when (position) {
                 0 -> {
@@ -32,6 +42,13 @@ class MainActivity : AppCompatActivity() {
                     tab.text = "Third"
                 }
             }
+
+        /*
+        * attach()
+        * Link the TabLayout and the ViewPager2 together.
+        * */
+
         }.attach()
+
     }
 }

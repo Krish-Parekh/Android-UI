@@ -13,6 +13,10 @@
             android:id="@+id/action_homeFragment2_to_bottomSheetFragment3"
             app:destination="@id/bottomSheetFragment3" />
     </fragment>
+
+    <!-- We need to change it from fragment to dialog because
+       if its fragment it will cover whole activity
+       -->
     <dialog
         android:id="@+id/bottomSheetFragment3"
         android:name="com.example.uipractice.bottomSheetFragment"
